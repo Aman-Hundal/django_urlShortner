@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import uuid
 from .models import URL
 from django.http import HttpResponse
@@ -15,3 +15,8 @@ def create(request):
         new_url = URL(link=url, short_link_id=short_link_id) #create the new URL data using the URL model
         new_url.save() #save the new URL
         return HttpResponse(short_link_id) #send a response to the client of the short_url_id which ajax will take care of using its succes function
+
+def redirecturl(request, id):
+    #print(URL.objects.get(short_link_id=id)) 
+    url_details = URL.objects.get(short_link_id=id) #search your URL models and get the coresponding URL OBECT/MODEL with the the short_link_id passed in as a dynmica url (id in function declaratin)
+    return redirect(url_details.link)
