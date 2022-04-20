@@ -92,10 +92,10 @@ section {
   <section id="section"><h2></h2></section>
 </main>
 
-<!-- Scripts (likely to run vanilla JS on frontend) + AJAX REQUEST ON FORM (with event listner on submit on post-form) WHICH PREVENT DEFAULTS ON SUBMIT AND ALLOWS US TO SEND OUR OWN CLEANED UP DATA TO DJANGO BACKEND (via post request). Makes it fee like a SPA AS ON SUCCESS of AJAX SPITS OUT (without refreshing) NEW SHORTNED LINK as a html tag <h2> -->
+<!-- Scripts (likely to run vanilla JS/jquery on frontend) + AJAX REQUEST ON FORM (with event listner on submit on post-form) WHICH PREVENT DEFAULTS ON SUBMIT AND ALLOWS US TO SEND OUR OWN CLEANED UP DATA TO DJANGO BACKEND (via post request). Makes it fee like a SPA AS ON SUCCESS of AJAX SPITS OUT (without refreshing) NEW SHORTNED LINK as a html tag <h2> -->
 <script type="text/javascript">
-  $(document).on('submit','#post-form',function(e){
-    e.preventDefault();
+  $(document).on('submit','#post-form',function(event){
+    event.preventDefault();
 
     $.ajax({
       type:'POST',
@@ -105,7 +105,7 @@ section {
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
       success: function(data){
-        $('h2').html("www.surls.ga/"+data)
+        $('h2').html("www.shortURL.ga/"+data)
       }
     });
   });
