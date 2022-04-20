@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('urlshortner.urls'))
+    path("", include('urlshortner.urls')) #syncs/includes/applies the app urlPath patterns the main project urlpaths
 ]
