@@ -21,6 +21,6 @@ def redirecturl(request, id):
     url_details = URL.objects.get(short_link_id=id) #search your URL models and get the coresponding URL OBECT/MODEL with the the short_link_id passed in as a dynmica url (id in function declaratin)
     return redirect(url_details.link)
 
-# your return.renders can take in something like tempalte vars like {"models": model} as well. 
+# your return.renders can take in something like tempalte vars like {"models": model} as well. -> return render(request, index.html, {templateVar})
 # use .all to gather all data- -> URL.objects.all(). A view can manage multipple request (ie. index fucntion can handle post, delete and gets and return render, redirect etc. We use conditionals + request.method == to manage request.= methods)
 #each model instance (data point in your db) has an automatically id created for it -> starting at 0

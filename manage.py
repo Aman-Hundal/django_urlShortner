@@ -23,5 +23,5 @@ if __name__ == '__main__':
 
 
 #create templates folder -> go to settings of project folder, temapltes and adjust DIRS to templates -> create urls.py in your app folder -> create urlpatterns for app (start with index) -> go to views.py in app to create index function to manage index logci (render the index page) -> go to urls.py in project folder and include the apps urlpattern (import include and include(app.urls))
-# setup db and models -> create the model in models.py -> adjust the settings file in project folder (installed apps section) and add the name of your add here -> run makemigration -> run migrate -> go to admin file in project folder and register your model (admin.site.register(URL))
-#repeate and create as many models, view functions, urlpatterns and templates as you need. 
+# setup db and models -> create the model in models.py -> adjust the settings file in project folder (installed apps section) and add the name of your app here -> run makemigration -> run migrate -> (create super user?) go to admin file in project folder and register your model (admin.site.register(URL))
+#repeat  and create as many models, view functions, urlpatterns (in app) and html templates as you need. 
